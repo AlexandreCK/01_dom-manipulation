@@ -8,25 +8,25 @@ console.log(mainTitleElement);
 // Exercise 2: Changing HTML Content
 // TODO: Select all paragraph elements and change the content of the second paragraph to "This paragraph has been changed."
 
-let allParagraphCollection = document.getElementsByTagName("p");
+let paragraphCollection = document.getElementsByTagName("p");
 
-allParagraphCollection[1].textContent = "This paragraph has been changed.";
+paragraphCollection[1].textContent = "This paragraph has been changed.";
 
 // // Exercise 3: Changing CSS Styles
 // // TODO: Select the first list item and change its text color to red
 
-let allListCollection = document.getElementsByTagName("li");
+let listItemCollection = document.getElementsByTagName("li");
 
-allListCollection[0].style.color = "red";
+listItemCollection[0].style.color = "red";
 
 // Exercise 4: Adding/Removing Classes
 // TODO: Add the "highlight" class to the first paragraph
 // TODO: Remove the "highlight" class from the first paragraph after 3 seconds
 
-allParagraphCollection[0].classList.add("highlight");
+paragraphCollection[0].classList.add("highlight");
 
 let removeHighlightClass = () => {
-  return allParagraphCollection[0].classList.remove("highlight");
+  paragraphCollection[0].classList.remove("highlight");
 };
 
 setTimeout(removeHighlightClass, 3000);
@@ -34,29 +34,27 @@ setTimeout(removeHighlightClass, 3000);
 // Exercise 5: Creating and Appending Elements
 // TODO: Create a new list item with the text "Item 4" and append it to the existing list
 
-let newLi = document.createElement("li");
+let newListItem = document.createElement("li");
 
-newLi.textContent = "Item 4";
+newListItem.textContent = "Item 4";
 
-let referenceElement = document.getElementById("list");
+let listElement = document.getElementById("list");
 
-referenceElement.appendChild(newLi);
+listElement.appendChild(newListItem);
 
 // Exercise 6: Removing Elements
 // TODO: Remove the last list item from the unordered list
 
-let listElements = document.getElementsByTagName("li");
+let lastListItemIndex = listItemCollection.length - 1;
 
-let lastLiIndex = listElements.length - 1;
+let lastListItem = listItemCollection[lastListItemIndex];
 
-let liToRemove = listElements[lastLiIndex];
-
-liToRemove.remove();
+lastListItem.remove();
 
 // Exercise 7: Handling Events
 // TODO: Add a click event listener to the button that displays an alert saying "Button clicked!"
 
-buttonElement = document.getElementById("actionButton");
+let buttonElement = document.getElementById("actionButton");
 
 buttonElement.addEventListener("click", function () {
   alert("Button clicked!");
@@ -76,17 +74,17 @@ inputElement.addEventListener("change", function () {
 // Exercise 9: Toggling Visibility
 // TODO: Add a click event listener to the button that toggles the visibility of the content div
 
-let visibilityButtonElement = document.getElementById("actionButton");
-
-visibilityButtonElement.addEventListener("click", function () {
+buttonElement.addEventListener("click", function () {
   let targetElement = document.getElementById("content");
 
-  targetElement.style.display = "none";
+  if (targetElement.style.display === "none") {
+    targetElement.style.display = "block";
+  } else {
+    targetElement.style.display = "none"; 
+  }
 });
 
 // Exercise 10: Modifying Attributes
 // TODO: Select the input field and change its placeholder text to "Enter your name"
 
-let inputFieldElement = document.getElementById("inputField");
-
-inputFieldElement.placeholder = "Enter your name";
+inputElement.placeholder = "Enter your name";
